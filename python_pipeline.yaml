@@ -1,0 +1,42 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+- master
+
+pool:
+  vmImage: '$(os.version)'
+strategy:
+  matrix:
+    Python35-ubuntu:
+      python.version: '3.5'
+      os.version: 'Ubuntu-16.04'
+    Python35-windows:
+      python.version: '3.5'
+      os.version: 'windows-latest'
+    Python35-mac:
+      python.version: '3.5'
+      os.version: 'macOS-10.14'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python.version)'
+  displayName: 'Use Python $(python.version)'
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install -r src/requirements.txt
+  displayName: 'Install dependencies'
+
+- script: |
+    pip install pytest==4.3.1 pytest-mock==1.10.2 pytest-azurepipelines
+    pytest src/tests/
+  displayName: 'pytest'
+
+- script: |
+    pip install pylint==2.3.1
+    pylint --rcfile .pylintrc src
+  displayName: 'pylint'
