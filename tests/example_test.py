@@ -1,11 +1,11 @@
 import os.path
 import unittest
-
-try:
+import mock
+'''try:
     from unittest import mock
 except ImportError:
     import mock
-
+'''
 from azure_devtools.scenario_tests import (
     ReplayableTest,
 )
