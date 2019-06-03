@@ -4,8 +4,8 @@ from azure.cognitiveservices.vision.computervision import ComputerVisionClient
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-SUBSCRIPTION_KEY_ENV_NAME = "COMPUTERVISION_SUBSCRIPTION_KEY"
-COMPUTERVISION_LOCATION = os.environ.get("COMPUTERVISION_LOCATION", "westcentralus")
+SUBSCRIPTION_KEY_ENV_NAME = "1288d1aa649443caa9e7cc2206deee0d"
+COMPUTERVISION_LOCATION = os.environ.get("COMPUTERVISION_LOCATION", "southeastasia")
 
 IMAGES_FOLDER = os.path.join(os.path.dirname(os.path.realpath(__file__)), "images")
 

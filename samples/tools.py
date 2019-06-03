@@ -27,7 +27,9 @@ def execute_samples(module_globals, key_env_variable):
     """Execute samples based on a dict <name, function>
     """
     try:
-        subscription_key = sys.argv[1] if len(sys.argv) >= 2 else os.environ[key_env_variable]
+        #subscription_key = sys.argv[1] if len(sys.argv) >= 2 else os.environ[key_env_variable]
+        #subscription_key = sys.argv[1]
+        subscription_key = key_env_variable
     except KeyError:
         raise SubscriptionKeyError("You need to either set the {} env variable.".format(key_env_variable))
 

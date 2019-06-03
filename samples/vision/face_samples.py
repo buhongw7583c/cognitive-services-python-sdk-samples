@@ -7,7 +7,7 @@ from msrest.authentication import CognitiveServicesCredentials
 from azure.cognitiveservices.vision.face.models import FaceAttributeType, HairColorType, TrainingStatusType, Person
 
 SUBSCRIPTION_KEY_ENV_NAME = "FACE_SUBSCRIPTION_KEY"
-FACE_LOCATION = os.environ.get("FACE_LOCATION", "westcentralus")
+FACE_LOCATION = os.environ.get("FACE_LOCATION", "southeastasia")
 
 IMAGES_FOLDER = os.path.join(os.path.dirname(os.path.realpath(__file__)), "images", "Face")
 
